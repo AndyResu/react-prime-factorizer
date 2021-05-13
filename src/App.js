@@ -16,23 +16,21 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillMount() {
-    axios.get('https://helloacm.com/api/factor/?cached&n=9223372036854775807').then((response) => {
-      this.setState({
-        primes: response.data
-      })
-    });
-  }
-
   handleChange(event) {
-    // needs validation here!
-    // number should be > 1, less than... max int?
     this.setState({value: event.target.value})
   }
 
   handleSubmit(event) {
+    // needs validation here!
+    // number should be > 1, less than... max int?
     event.preventDefault();
     console.log(this.state.value);
+    let curl = 'https://helloacm.com/api/factor/?cached&n='.concat(this.state.value)
+    axios.get(curl).then((response) => {
+      this.setState({
+        primes: response.data
+      })
+    });
   }
 
   render() {
@@ -54,7 +52,7 @@ class App extends Component {
               </tr>
             </thead>
             <tbody>
-            <tr key = "9223372036854775807">
+            <tr key = "display">
               <td>{this.state.primes.result}</td>
             </tr>
             </tbody>
