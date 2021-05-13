@@ -5,8 +5,15 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 class App extends Component {
-  state = {
-    primes: []
+  constructor(props) {
+    super(props);
+    this.state = {
+      primes: {},
+      value: 8
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillMount() {
@@ -17,27 +24,38 @@ class App extends Component {
     });
   }
 
+  handleChange(event) {
+    // needs validation here!
+    // number should be > 1, less than... max int?
+    this.setState({value: event.target.value})
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log(this.state.value);
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          Table of Results<br/>
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              Input:
+              <input type="number" value={this.state.value} onChange={this.handleChange}></input>
+            </label>
+            <input type="submit" value="Prime Factorize Input!"/>
+          </form>
+          <br/><br/>
           <Table>
             <thead>
               <tr>
-                <th>Input: </th>
                 <th>Prime Factorization</th>
-                <th>Action</th>
               </tr>
             </thead>
             <tbody>
             <tr key = "9223372036854775807">
-              <td>8</td>
               <td>{this.state.primes.result}</td>
-              <td>
-                <button color="success" size="sm">Prime Factorize!</button>
-                <button color="danger" size="sm">Delete</button>
-              </td>
             </tr>
             </tbody>
           </Table>
@@ -51,4 +69,5 @@ class App extends Component {
     );
   }
 }
+
 export default App;
