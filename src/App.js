@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import comic from './xkcd247.png'
 import './App.css';
 import { Table } from 'reactstrap';
 
@@ -26,8 +26,11 @@ function App() {
             </tr>
           </tbody>
         </Table>
-        <img src="src/xkcd247.png" alt="xkcd comic 247"/>
-        <img src={logo} className="App-logo" alt="logo" />
+        <br/>
+        <br/>
+        <br/>
+        <img src={comic} alt="xkcd comic 247"/>
+        xkcd comic 247: https://xkcd.com/247/
       </header>
     </div>
   );
