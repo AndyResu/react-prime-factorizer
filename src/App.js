@@ -10,7 +10,7 @@ class App extends Component {
   }
 
   componentWillMount() {
-    axios.get('http://localhost:3000/').then((response) => {
+    axios.get('https://helloacm.com/api/factor/?cached&n=9223372036854775807').then((response) => {
       this.setState({
         primes: response.data
       })
@@ -31,14 +31,14 @@ class App extends Component {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>8</td>
-                <td>...</td>
-                <td>
-                  <button color="success" size="sm">Prime Factorize!</button>
-                  <button color="danger" size="sm">Delete</button>
-                </td>
-              </tr>
+            <tr key = "9223372036854775807">
+              <td>8</td>
+              <td>{this.state.primes.result}</td>
+              <td>
+                <button color="success" size="sm">Prime Factorize!</button>
+                <button color="danger" size="sm">Delete</button>
+              </td>
+            </tr>
             </tbody>
           </Table>
           <br/>
