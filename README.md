@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Followed a React JS REST API Tutorial here:
 https://www.youtube.com/watch?v=9CPmtIeapMw
-Modified it to use my another API, and have fewer extraneous functions.
+Modified it to use another API, and have fewer extraneous functions.
 
 ### `npm start`
 
